@@ -27,8 +27,8 @@
 	# started in user sessions.
 	# programs.mtr.enable = true;
 	# programs.gnupg.agent = {
-	#  enable = true;
-	#  enableSSHSupport = true;
+	#	enable = true;
+	#	enableSSHSupport = true;
 	# };
 
 	# This value determines the NixOS release from which the default
@@ -38,5 +38,4 @@
 	# Before changing this value read the documentation for this option
 	# (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
 	system.stateVersion = "24.11"; # Did you read the comment?
-
 }
