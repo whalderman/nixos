@@ -15,13 +15,21 @@
 		./mod/users.nix
 	];
 
-	boot.loader.grub.enable = true;
-	boot.loader.grub.device = "/dev/nvme0n1";
-	boot.loader.grub.useOSProber = true;
-		
-	hardware.bluetooth.enable = true;
+	boot.loader.systemd-boot.enable = true;
+	boot.loader.systemd-boot.configurationLimit = 10;
+	boot.loader.efi.canTouchEfiVariables = true;
 
+	# Enable CUPS to print documents.
 	services.printing.enable = true;
+
+	services.flatpak.enable = true;
+	systemd.services.flatpak-repo = {
+		wantedBy = [ "multi-user.target" ];
+		path = [ pkgs.flatpak ];
+		script = ''
+			flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+		'';
+	};
 
 	# Some programs need SUID wrappers, can be configured further or are
 	# started in user sessions.
@@ -37,5 +45,5 @@
 	# this value at the release version of the first install of this system.
 	# Before changing this value read the documentation for this option
 	# (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-	system.stateVersion = "24.11"; # Did you read the comment?
+	system.stateVersion = "24.05"; # Did you read the comment?
 }

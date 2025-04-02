@@ -22,4 +22,10 @@
 		type = "ibus";
 		ibus.engines = with pkgs.ibus-engines; [ mozc ];
 	};
+
+	# Configure keymap in X11
+	services.xserver.xkb = {
+		layout = "jp";
+		variant = "";
+	};
 }

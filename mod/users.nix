@@ -2,16 +2,14 @@
 
 {
 	# Don't forget to set a password with ‘passwd’!
-	users.users.warrenh = {
+	users.users.warren = {
 		isNormalUser = true;
 		description = "Warren Halderman";
 		extraGroups = [
 			"networkmanager"
-			"wheel"
-			"dialout" # serial port access
+			"wheel" # for serial connections
+			#"incus-admin"
 		];
-		packages = with pkgs; [
-		#	thunderbird
-		];
+		packages = with pkgs; [];
 	};
 }

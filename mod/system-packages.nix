@@ -15,6 +15,7 @@
 		cpufrequtils
 		deno
 		discord
+		#distrobox
 		docker
 		expressvpn
 		firebase-tools
@@ -26,6 +27,8 @@
 		gnome-tweaks
 		go
 		google-chrome
+		google-cloud-sdk
+		#handbrake
 		imagemagick
 		inkscape
 		jq
@@ -34,20 +37,19 @@
 		libwebp
 		minikube
 		nodejs_23
-			grpc-tools
+			#grpc-tools
 			pnpm_10
 		pngquant
+		podman
 		python3
-		qbittorrent
 		re2
 		ripgrep
 		rustup
 		signal-desktop
+		#static-web-server
 		stripe-cli
-		tmux
 		typescript
 		unzip
-		vim
 		vlc
 		vscode
 		wget

@@ -18,7 +18,7 @@
 
 	fonts.fontconfig.defaultFonts = {
 		serif = [ "Roboto Serif" "Source Han Serif VF" ];
-		sansSerif = [ "Roboto" "Source Han Sans VF" ];
+		sansSerif = [ "IBM Plex Sans JP Text" "Source Han Sans VF" ];
 		monospace = [ "Source Han Code JP" "Source Han Mono" ];
 	};
 }

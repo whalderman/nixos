@@ -12,21 +12,28 @@
 	hardware.nvidia.open = false;
 	services.xserver.videoDrivers = [ "nvidia" ];
 
-	# Configure keymap in X11
-	services.xserver.xkb = {
-		layout = "jp";
-		variant = "";
-	};
+	# Modesetting is required.
+	hardware.nvidia.modesetting.enable = true;
 
-	# Enable touchpad support (enabled default in most desktopManager).
-	# services.xserver.libinput.enable = true;
+	# Nvidia power management. Experimental, and can cause sleep/suspend to fail.
+	# Enable this if you have graphical corruption issues or application crashes after waking
+	# up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead 
+	# of just the bare essentials.
+	hardware.nvidia.powerManagement.enable = false;
 
-	# Enable automatic login.
-	services.displayManager.autoLogin = {
-		enable = true;
-		user = "warrenh";
-	};
-	# Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-	systemd.services."getty@tty1".enable = false;
-	systemd.services."autovt@tty1".enable = false;
+	# Fine-grained power management. Turns off GPU when not in use.
+	# Experimental and only works on modern Nvidia GPUs (Turing or newer).
+	hardware.nvidia.powerManagement.finegrained = false;
+
+	# Use NVidia's own open source kernel module.
+	# Support is limited to the Turing and later architectures. Full list of 
+	# supported GPUs is at: 
+	# https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
+	# Only available from driver 515.43.04+
+	hardware.nvidia.open = false;
+	hardware.nvidia.nvidiaSettings = true;
+	hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+	# needed by some Wine emulated programs, etc.
+	hardware.graphics.enable32Bit = true;
 }
