@@ -15,7 +15,7 @@
 		cpufrequtils
 		deno
 		discord
-		#distrobox
+		distrobox
 		docker
 		expressvpn
 		firebase-tools
