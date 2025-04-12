@@ -46,6 +46,8 @@
 		stripe-cli
 		tmux
 		typescript
+		# for extracting non-utf8 archives (e.g. unar -e Shift_JIS archive.zip)
+		unar
 		unzip
 		vim
 		vlc
