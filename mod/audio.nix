@@ -2,7 +2,7 @@
 
 {
 	# Enable sound with pipewire.
-	services.pulseaudio.enable = false;
+	hardware.pulseaudio.enable = false;
 	# PulseAudio and PipeWire use rtkit to acquire realtime priority.
 	security.rtkit.enable = true; 
 	services.pipewire = {
