@@ -15,9 +15,11 @@
 		./mod/users.nix
 	];
 
-	boot.loader.grub.enable = true;
-	boot.loader.grub.device = "/dev/nvme0n1";
-	boot.loader.grub.useOSProber = true;
+	boot.loader.systemd-boot.enable = true;
+	boot.loader.efi.canTouchEfiVariables = true;
+
+	# Use latest kernel.
+	boot.kernelPackages = pkgs.linuxPackages_latest;
 		
 	hardware.bluetooth.enable = true;
 
@@ -37,5 +39,5 @@
 	# this value at the release version of the first install of this system.
 	# Before changing this value read the documentation for this option
 	# (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-	system.stateVersion = "24.11"; # Did you read the comment?
+	system.stateVersion = "25.05"; # Did you read the comment?
 }

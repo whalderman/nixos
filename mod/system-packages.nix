@@ -33,7 +33,7 @@
 		libreoffice
 		libwebp
 		minikube
-		nodejs_23
+		nodejs_24
 			grpc-tools
 			pnpm_10
 		pngquant
