@@ -13,14 +13,15 @@
 		./mod/programs.nix
 		./mod/system-packages.nix
 		./mod/users.nix
+		./mod/env.nix
 	];
 
 	boot.loader.systemd-boot.enable = true;
 	boot.loader.efi.canTouchEfiVariables = true;
 
-	# Use latest kernel.
-	boot.kernelPackages = pkgs.linuxPackages_latest;
-		
+	# nvidia does not generally go well with _latest.
+	boot.kernelPackages = pkgs.linuxPackages_xanmod;
+
 	hardware.bluetooth.enable = true;
 
 	services.printing.enable = true;

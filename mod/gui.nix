@@ -9,7 +9,13 @@
 	services.xserver.desktopManager.gnome.enable = true;
 	services.gnome.sushi.enable = true;
 
+	# enable OpenGL
+	hardware.graphics.enable = true;
+	hardware.graphics.enable32Bit = true;
+
 	hardware.nvidia.open = false;
+	hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+	#hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
 	services.xserver.videoDrivers = [ "nvidia" ];
 
 	# Configure keymap in X11
